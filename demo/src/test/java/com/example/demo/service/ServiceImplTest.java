@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.doa.EmployeeDao;
 import com.example.demo.entities.EmployeeDetailsDTO;
 import com.example.demo.pojo.EmployeeDetails;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+@Slf4j
 @ExtendWith(SpringExtension.class)
 class ServiceImplTest {
     @Mock
@@ -54,6 +56,7 @@ class ServiceImplTest {
         employeeDetails.setDate("01-04-1998");
         Exception exception=assertThrows(AgeDoesNotExistsException.class, ()->
         {
+            log.info("kabya");
             employeeservice.addEmployee(employeeDetails);
 
         });
